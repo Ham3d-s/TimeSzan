@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>مبدل زمان</title>
+    <link rel="stylesheet" href="fonts/Vazirmatn-font-face.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Vazirmatn', sans-serif;
+            direction: rtl;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            background: linear-gradient(135deg, #1a1a2e 0%, #0f0f1a 100%);
+            min-height: 100vh;
+        }
+
+        :root {
+            --glass-bg: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.36);
+            --background-color: #0f0f1a;
+            --container-background-color: rgba(44, 44, 46, 0.3);
+            --input-background-color: rgba(58, 58, 60, 0.4);
+            --border-color: rgba(72, 72, 74, 0.5);
+            --text-color: #f5f5f7;
+            --primary-color: #0a84ff;
+            --success-color: #32d74b;
+        }
+
+        #container {
+            width: 90%;
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: var(--container-background-color);
+            border-radius: 12px;
+            box-sizing: border-box;
+            flex: 1;
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            box-shadow: var(--glass-shadow);
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        .section {
+            margin-bottom: 30px;
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 15px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid var(--glass-border);
+            box-shadow: var(--glass-shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .section:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.45);
+        }
+
+        .section legend {
+            font-size: 1.2em;
+            font-weight: bold;
+            padding: 0 10px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 17px;
+            font-weight: 600;
+            color: var(--text-color);
+        }
+
+        input[type="text"], select {
+            padding: 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 17px;
+            background-color: var(--input-background-color);
+            color: var(--text-color);
+            width: calc(100% - 24px); /* Adjust for padding */
+            box-sizing: border-box;
+            margin-bottom: 16px;
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            background-image: url('fonts/Vazirmatn-font-face.css');
+            transition: border-color 0.3s ease;
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            background: var(--input-background-color);
+            border: 1px solid var(--glass-border);
+            transition: all 0.3s ease;
+        }
+
+        input[type="text"]:focus, select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 20px rgba(10, 132, 255, 0.3);
+        }
+
+        button {
+            background-color: var(--primary-color);
+            color: #fff;
+            cursor: pointer;
+            border: none;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 17px;
+            width: 100%;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+            transition: background-color 0.3s ease, transform 0.1s ease;
+            background: linear-gradient(135deg, var(--primary-color), #0055ff);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            box-shadow: 0 4px 15px rgba(10, 132, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #086dd9;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(10, 132, 255, 0.4);
+            background: linear-gradient(135deg, #0055ff, var(--primary-color));
+        }
+
+        button:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(10, 132, 255, 0.5);
+        }
+
+        button:active {
+            transform: scale(0.95);
+        }
+
+        #timestampDetails, #inputTimestampDetails {
+            white-space: pre-wrap;
+            background-color: var(--input-background-color);
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 17px;
+            line-height: 1.5;
+            margin-bottom: 15px;
+            overflow-x: auto;
+            background: var(--input-background-color);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            border: 1px solid var(--glass-border);
+            transition: all 0.3s ease;
+        }
+
+        #liveDateTime {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: var(--input-background-color);
+            border-radius: 12px;
+            font-size: 17px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid var(--glass-border);
+            box-shadow: var(--glass-shadow);
+            animation: pulse 2s infinite;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: var(--container-background-color);
+            margin-top: auto;
+            border-top: 1px solid var(--border-color);
+            background: var(--glass-bg);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border-top: 1px solid var(--glass-border);
+        }
+
+        footer a {
+            color: var(--primary-color);
+            margin: 0 10px;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            position: relative;
+            padding: 5px 0;
+        }
+
+        footer a:hover {
+            color: #086dd9;
+        }
+
+        footer a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+
+        footer a:hover::after {
+            width: 100%;
+        }
+
+        .date-format-select {
+            direction: ltr;
+            width: 100%;
+            margin-bottom: 16px;
+        }
+
+        #timestampContainer {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 16px;
+        }
+
+        #copyButton {
+            background-color: transparent;
+            color: var(--primary-color);
+            border: none;
+            padding: 0;
+            font-size: 20px;
+            cursor: pointer;
+            transition: transform 0.2s ease, color 0.2s ease;
+            margin-left: auto; /* Push to the right */
+            margin-bottom: 0;
+        }
+
+        #copyButton:hover {
+            transform: scale(1.2);
+            color: #086dd9;
+        }
+
+        #copyButton:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(10, 132, 255, 0.5);
+        }
+
+        #copyButton:active {
+            transform: scale(0.9);
+        }
+
+        .copy-success #copyIcon {
+           animation: checkmark 0.5s ease forwards;
+        }
+
+        @keyframes checkmark {
+             0% { transform: scale(1); }
+             50% { transform: scale(1.3) rotate(10deg); color: var(--success-color);}
+            100% { transform: scale(1) rotate(0deg); color: var(--success-color);}
+        }
+
+        #pasteButton {
+            background-color: transparent;
+            color: var(--primary-color);
+            border: none;
+            padding: 0;
+            font-size: 20px;
+            cursor: pointer;
+            transition: transform 0.2s ease, color 0.2s ease;
+            margin-left: 10px;
+        }
+
+        #pasteButton:hover {
+            transform: scale(1.2);
+            color: #086dd9;
+        }
+
+        #pasteButton:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(10, 132, 255, 0.5);
+        }
+
+        #pasteButton:active {
+            transform: scale(0.9);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: var(--text-color);
+        }
+
+        input[type="text"]::-webkit-input-placeholder { direction: rtl; }
+        input[type="text"]:-moz-placeholder { direction: rtl; }
+        input[type="text"]::-moz-placeholder { direction: rtl; }
+        input[type="text"]:-ms-input-placeholder { direction: rtl; }
+        input[type="text"]::-ms-input-placeholder { direction: rtl; }
+        input[type="text"]::placeholder { direction: rtl; }
+
+        .feedback-message {
+            font-size: 0.9em;
+            margin-top: -10px;
+            margin-bottom: 10px;
+            text-align: left;
+        }
+
+        .feedback-message.success {
+            color: var(--success-color);
+        }
+
+        .feedback-message.error {
+            color: #ff453a;
+        }
+
+        /* Add smooth page load animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Language Switcher Styles */
+        .language-switcher {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+
+        .language-btn {
+            background: var(--glass-bg);
+            color: var(--text-color);
+            border: 1px solid var(--glass-border);
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            backdrop-filter: blur(8px);
+            transition: all 0.3s ease;
+        }
+
+        .language-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(10, 132, 255, 0.3);
+        }
+
+        /* Info Dropdown Styles */
+        .info-dropdown {
+            margin-top: 20px;
+            border-top: 1px solid var(--glass-border);
+            padding-top: 20px;
+        }
+
+        .info-btn {
+            width: 100%;
+            text-align: center;
+            background: var(--glass-bg);
+            color: var(--text-color);
+            border: 1px solid var(--glass-border);
+            padding: 10px;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-bottom: 10px;
+            backdrop-filter: blur(8px);
+            transition: all 0.3s ease;
+        }
+
+        .info-content {
+            display: none;
+            padding: 15px;
+            background: var(--glass-bg);
+            border-radius: 8px;
+            margin-top: 10px;
+            backdrop-filter: blur(8px);
+            line-height: 1.6;
+        }
+
+        .info-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <div class="language-switcher">
+        <button class="language-btn" id="languageToggle">English</button>
+    </div>
+
+<div id="liveDateTime"></div>
+
+<div id="container">
+    <fieldset class="section">
+        <legend>ایجاد Timestamp</legend>
+        <div class="date-format-select">
+            <label for="generateDateFormat">انتخاب قالب تاریخ</label>
+            <select id="generateDateFormat">
+                <option value="fa-IR">شمسی</option>
+                <option value="en-US">میلادی</option>
+            </select>
+         </div>
+        <button id="generateTimestamp">ایجاد Timestamp</button>
+        <div id="timestampContainer">
+            <label for="timestamp" style="flex-shrink: 0;">Timestamp:</label>
+            <input type="text" id="timestamp" readonly>
+            <button id="copyButton" aria-label="کپی کردن Timestamp"><i id="copyIcon" class="fas fa-copy"></i></button>
+            <div id="copyFeedback" aria-live="polite" class="feedback-message"></div>
+        </div>
+        <pre id="timestampDetails"></pre>
+    </fieldset>
+
+    <fieldset class="section">
+        <legend>نمایش جزئیات Timestamp</legend>
+         <div class="date-format-select">
+            <label for="inputDateFormat">انتخاب قالب تاریخ</label>
+            <select id="inputDateFormat">
+                <option value="fa-IR">شمسی</option>
+                <option value="en-US">میلادی</option>
+            </select>
+         </div>
+
+        <label for="inputTimestamp">وارد کردن Timestamp</label>
+        <div id="timestampContainer">
+            <input type="text" id="inputTimestamp" placeholder="مثال: 1732590702">
+            <button id="pasteButton" aria-label="چسباندن Timestamp"><i id="pasteIcon" class="fas fa-paste"></i></button>
+        </div>
+        <button id="showDetails">نمایش جزئیات</button>
+        <pre id="inputTimestampDetails" class="error"></pre>
+    </fieldset>
+
+    <div class="info-dropdown">
+        <button class="info-btn" id="infoToggle"></button>
+        <div class="info-content" id="infoContent"></div>
+    </div>
+
+</div>
+
+<footer>
+    <a href="https://github.com/Ham3d-s">GitHub</a> |
+    <a href="https://x.com/ham3ds_">Twitter</a> |
+    <a href="https://t.me/Ham3ds">Telegram</a>
+</footer>
+
+<script>
+    const liveDateTimeElement = document.getElementById('liveDateTime');
+    const generateDateFormatSelect = document.getElementById('generateDateFormat');
+    const generateButton = document.getElementById('generateTimestamp');
+    const timestampInput = document.getElementById('timestamp');
+    const copyButton = document.getElementById('copyButton');
+    const copyIcon = document.getElementById('copyIcon');
+    const copyFeedback = document.getElementById('copyFeedback');
+    const timestampDetails = document.getElementById('timestampDetails');
+
+    const inputDateFormatSelect = document.getElementById('inputDateFormat');
+    const inputTimestampInput = document.getElementById('inputTimestamp');
+    const showDetailsButton = document.getElementById('showDetails');
+    const inputTimestampDetails = document.getElementById('inputTimestampDetails');
+
+    const pasteButton = document.getElementById('pasteButton');
+    const pasteIcon = document.getElementById('pasteIcon');
+
+    function updateLiveDateTime() {
+        const now = new Date();
+        const options = {
+            timeZone: 'Asia/Tehran',
+            weekday: 'long',
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+            hour: 'numeric',
+            minute: 'numeric',
+            second: 'numeric',
+            timeZoneName: 'short'
+        };
+        liveDateTimeElement.textContent = new Intl.DateTimeFormat(generateDateFormatSelect.value, options).format(now);
+    }
+
+    function generateTimestamp() {
+        const now = new Date();
+        const timestamp = now.getTime();
+        timestampInput.value = timestamp;
+        displayTimestampDetails(now, timestamp, generateDateFormatSelect.value);
+    }
+
+    function displayTimestampDetails(date, timestamp, locale) {
+        const options = {
+            timeZone: 'Asia/Tehran',
+            weekday: 'long',
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+            hour: 'numeric',
+            minute: 'numeric',
+            second: 'numeric',
+            timeZoneName: 'short'
+        };
+        const formattedDate = new Intl.DateTimeFormat(locale, options).format(date);
+        timestampDetails.textContent = `Timestamp: ${timestamp}\n${formattedDate}`;
+    }
+
+    function showTimestampDetails() {
+        const inputTimestampValue = inputTimestampInput.value.trim();
+        const timestamp = parseInt(inputTimestampValue, 10);
+
+        const messages = {
+            'fa-IR': {
+                invalidTimestamp: "Timestamp نامعتبر است."
+            },
+            'en-US': {
+                invalidTimestamp: "Invalid Timestamp."
+            }
+        };
+
+        if (isNaN(timestamp)) {
+            inputTimestampDetails.textContent = messages[inputDateFormatSelect.value].invalidTimestamp;
+            inputTimestampDetails.classList.add('error');
+            return;
+        }
+
+        const date = new Date(timestamp);
+        displayInputTimestampDetails(date, inputDateFormatSelect.value);
+    }
+
+    function displayInputTimestampDetails(date, locale) {
+        const options = {
+            timeZone: 'Asia/Tehran',
+            weekday: 'long',
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+            hour: 'numeric',
+            minute: 'numeric',
+            second: 'numeric',
+            timeZoneName: 'short'
+        };
+        const formattedDate = new Intl.DateTimeFormat(locale, options).format(date);
+        inputTimestampDetails.textContent = `Timestamp: ${date.getTime()}\n${formattedDate}`;
+        inputTimestampDetails.classList.remove('error');
+    }
+
+    function copyToClipboard() {
+        const timestampValue = timestampInput.value;
+        if (navigator.clipboard) {
+            navigator.clipboard.writeText(timestampValue)
+                .then(() => {
+                    copyIcon.classList.add('copy-success');
+                    copyFeedback.textContent = "کپی شد!";
+                    copyFeedback.classList.add('success');
+                    copyFeedback.classList.remove('error');
+                    setTimeout(() => {
+                        copyIcon.classList.remove('copy-success');
+                        copyFeedback.textContent = "";
+                        copyFeedback.classList.remove('success');
+                    }, 1500);
+                })
+                .catch(err => {
+                    copyFeedback.textContent = "خطا در کپی کردن.";
+                    copyFeedback.classList.add('error');
+                    copyFeedback.classList.remove('success');
+                });
+        } else {
+            // Fallback for browsers that do not support Clipboard API
+            timestampInput.select();
+            document.execCommand('copy');
+            copyIcon.classList.add('copy-success');
+            copyFeedback.textContent = "کپی شد!";
+            copyFeedback.classList.add('success');
+            copyFeedback.classList.remove('error');
+            setTimeout(() => {
+                copyIcon.classList.remove('copy-success');
+                copyFeedback.textContent = "";
+                copyFeedback.classList.remove('success');
+            }, 1500);
+        }
+    }
+
+    async function pasteFromClipboard() {
+        try {
+            const text = await navigator.clipboard.readText();
+            const timestamp = parseInt(text.trim(), 10);
+            
+            if (!isNaN(timestamp)) {
+                inputTimestampInput.value = timestamp;
+                const date = new Date(timestamp);
+                displayInputTimestampDetails(date, inputDateFormatSelect.value);
+            } else {
+                console.error('Invalid timestamp in clipboard');
+                alert('لطفا یک تایم‌استمپ معتبر را کپی کنید');
+            }
+        } catch (err) {
+            console.error('Failed to read clipboard:', err);
+            alert('دسترسی به کلیپ‌بورد امکان‌پذیر نیست');
+        }
+    }
+    
+    // Replace existing event listener with:
+    pasteButton.addEventListener('click', pasteFromClipboard);
+
+    // Event Listeners
+    setInterval(updateLiveDateTime, 1000);
+
+    generateButton.addEventListener('click', generateTimestamp);
+    showDetailsButton.addEventListener('click', showTimestampDetails);
+
+    generateDateFormatSelect.addEventListener('change', () => {
+        updateLiveDateTime();
+        if (timestampInput.value) {
+            const timestamp = parseInt(timestampInput.value, 10);
+            const date = new Date(timestamp);
+            displayTimestampDetails(date, timestamp, generateDateFormatSelect.value);
+        }
+    });
+
+    copyButton.addEventListener('click', copyToClipboard);
+    pasteButton.addEventListener('click', pasteFromClipboard);
+
+    generateDateFormatSelect.addEventListener('change', updateLiveDateTime);
+
+    // Add this before other JavaScript code
+    const translations = {
+        'fa': {
+            languageBtn: 'English',
+            title: 'مبدل زمان',
+            generateSection: 'ایجاد Timestamp',
+            detailsSection: 'نمایش جزئیات Timestamp',
+            selectDateFormat: 'انتخاب قالب تاریخ',
+            persian: 'شمسی',
+            gregorian: 'میلادی',
+            generateBtn: 'ایجاد Timestamp',
+            enterTimestamp: 'وارد کردن Timestamp',
+            showDetails: 'نمایش جزئیات',
+            copied: 'کپی شد!',
+            copyError: 'خطا در کپی کردن.',
+            invalidTimestamp: 'Timestamp نامعتبر است.',
+            clipboardError: 'دسترسی به کلیپ‌بورد امکان‌پذیر نیست',
+            infoBtn: 'درباره این برنامه',
+            infoContent: `
+                <h3>درباره مبدل زمان</h3>
+                <p>مبدل زمان یک ابزار قدرتمند و کاربرپسند برای مدیریت و تبدیل Timestamp است. این برنامه به شما امکان می‌دهد تا به راحتی بین Timestamp و فرمت‌های مختلف تاریخ تبدیل انجام دهید.</p>
+
+                <h4>ویژگی‌های اصلی:</h4>
+                <ul>
+                    <li>تبدیل خودکار زمان فعلی به Timestamp</li>
+                    <li>نمایش تاریخ و زمان به دو تقویم شمسی و میلادی</li>
+                    <li>امکان تبدیل Timestamp به تاریخ و زمان قابل خواندن</li>
+                    <li>رابط کاربری ساده و روان</li>
+                    <li>پشتیبانی از زبان‌های فارسی و انگلیسی</li>
+                    <li>کپی و پیست سریع Timestamp</li>
+                    <li>نمایش زنده زمان و تاریخ</li>
+                </ul>
+
+                <h4>موارد استفاده:</h4>
+                <ul>
+                    <li>برنامه‌نویسان و توسعه‌دهندگان وب</li>
+                    <li>متخصصان پایگاه داده</li>
+                    <li>مدیران سیستم</li>
+                    <li>کاربران عمومی نیازمند تبدیل تاریخ</li>
+                </ul>
+
+                <h4>راهنمای استفاده:</h4>
+                <ol>
+                    <li>برای ایجاد Timestamp: روی دکمه "ایجاد Timestamp" کلیک کنید</li>
+                    <li>برای تبدیل Timestamp: عدد را در فیلد ورودی وارد کرده و "نمایش جزئیات" را بزنید</li>
+                    <li>برای تغییر فرمت تاریخ: از منوی کشویی "انتخاب قالب تاریخ" استفاده کنید</li>
+                </ol>`,
+        },
+        'en': {
+            languageBtn: 'فارسی',
+            title: 'Time Converter',
+            generateSection: 'Generate Timestamp',
+            detailsSection: 'Show Timestamp Details',
+            selectDateFormat: 'Select Date Format',
+            persian: 'Persian',
+            gregorian: 'Gregorian',
+            generateBtn: 'Generate Timestamp',
+            enterTimestamp: 'Enter Timestamp',
+            showDetails: 'Show Details',
+            copied: 'Copied!',
+            copyError: 'Error copying.',
+            invalidTimestamp: 'Invalid Timestamp.',
+            clipboardError: 'Cannot access clipboard',
+            infoBtn: 'About This App',
+            infoContent: `
+                <h3>About Time Converter</h3>
+                <p>Time Converter is a powerful and user-friendly tool for managing and converting timestamps. This application allows you to easily convert between timestamps and various date formats.</p>
+
+                <h4>Key Features:</h4>
+                <ul>
+                    <li>Automatic conversion of current time to timestamp</li>
+                    <li>Date and time display in both Persian and Gregorian calendars</li>
+                    <li>Convert timestamps to human-readable date and time</li>
+                    <li>Clean and intuitive user interface</li>
+                    <li>Bilingual support (English and Persian)</li>
+                    <li>Quick timestamp copy and paste</li>
+                    <li>Live date and time display</li>
+                </ul>
+
+                <h4>Use Cases:</h4>
+                <ul>
+                    <li>Web developers and programmers</li>
+                    <li>Database specialists</li>
+                    <li>System administrators</li>
+                    <li>General users needing date conversion</li>
+                </ul>
+
+                <h4>How to Use:</h4>
+                <ol>
+                    <li>To generate a timestamp: Click the "Generate Timestamp" button</li>
+                    <li>To convert a timestamp: Enter the number in the input field and click "Show Details"</li>
+                    <li>To change date format: Use the "Select Date Format" dropdown menu</li>
+                </ol>`,
+        }
+    };
+
+    let currentLang = 'fa';
+
+    function updateLanguage() {
+        document.documentElement.lang = currentLang;
+        document.title = translations[currentLang].title;
+        
+        // Update all text content
+        document.querySelector('legend').textContent = translations[currentLang].generateSection;
+        document.querySelectorAll('legend')[1].textContent = translations[currentLang].detailsSection;
+        document.querySelector('#generateDateFormat').previousElementSibling.textContent = translations[currentLang].selectDateFormat;
+        document.querySelector('#inputDateFormat').previousElementSibling.textContent = translations[currentLang].selectDateFormat;
+        document.querySelector('#generateTimestamp').textContent = translations[currentLang].generateBtn;
+        document.querySelector('#showDetails').textContent = translations[currentLang].showDetails;
+        document.querySelector('#languageToggle').textContent = translations[currentLang].languageBtn;
+        document.querySelector('#infoToggle').textContent = translations[currentLang].infoBtn;
+        document.querySelector('#infoContent').innerHTML = translations[currentLang].infoContent;
+
+        // Update select options
+        const selects = document.querySelectorAll('select');
+        selects.forEach(select => {
+            select.options[0].text = translations[currentLang].persian;
+            select.options[1].text = translations[currentLang].gregorian;
+        });
+    }
+
+    // Add this after other event listeners
+    document.getElementById('languageToggle').addEventListener('click', () => {
+        currentLang = currentLang === 'fa' ? 'en' : 'fa';
+        updateLanguage();
+    });
+
+    document.getElementById('infoToggle').addEventListener('click', () => {
+        const content = document.getElementById('infoContent');
+        content.classList.toggle('active');
+    });
+
+    // Initialize language
+    updateLanguage();
+</script>
+
+</body>
+</html>
