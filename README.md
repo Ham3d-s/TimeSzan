@@ -48,13 +48,6 @@
 * CSS
 * JavaScript
 
-## 👤 توسعه‌دهنده
-
-[Ham3ds](https://github.com/Ham3d-s)
-
-[![GitHub](https://img.shields.io/badge/GitHub-%2312100E.svg?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Ham3d-s)
-[![Twitter](https://img.shields.io/badge/Twitter-%231DA1F2.svg?style=for-the-badge&logo=Twitter&logoColor=white)](https://x.com/ham3ds_)
-[![Telegram](https://img.shields.io/badge/Telegram-%232CA5E0.svg?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/Ham3ds)
 
 ## 📄 لایسنس
 
@@ -62,6 +55,17 @@
 
 * **ذکر نام:** در صورت استفاده از این کد یا بخشی از آن، لطفاً نام برنامه **TimeSzan** و توسعه‌دهنده **Ham3ds** را به همراه لینک برنامه ([https://timeszan.netlify.app](https://timeszan.netlify.app)) ذکر کنید.
 * **استفاده غیر تجاری و تجاری:** استفاده از این پروژه هم برای مقاصد غیرتجاری و هم تجاری مجاز است.
+
+
+
+
+[Ham3ds](https://github.com/Ham3d-s)
+
+[![GitHub](https://img.shields.io/badge/GitHub-%2312100E.svg?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Ham3d-s)
+[![Twitter](https://img.shields.io/badge/Twitter-%231DA1F2.svg?style=for-the-badge&logo=Twitter&logoColor=white)](https://x.com/ham3ds_)
+[![Telegram](https://img.shields.io/badge/Telegram-%232CA5E0.svg?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/Ham3ds)
+
+
 
 ---
 
@@ -114,13 +118,6 @@
 * CSS
 * JavaScript
 
-## 👤 Developer
-
-[Ham3ds](https://github.com/Ham3d-s)
-
-[![GitHub](https://img.shields.io/badge/GitHub-%2312100E.svg?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Ham3d-s)
-[![Twitter](https://img.shields.io/badge/Twitter-%231DA1F2.svg?style=for-the-badge&logo=Twitter&logoColor=white)](https://x.com/ham3ds_)
-[![Telegram](https://img.shields.io/badge/Telegram-%232CA5E0.svg?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/Ham3ds)
 
 ## 📄 License
 
@@ -130,3 +127,9 @@ Use of this project is free, but under the following conditions:
 * **Non-commercial and Commercial Use:**  Use of this project is permitted for both non-commercial and commercial purposes.
 
 
+
+[Ham3ds](https://github.com/Ham3d-s)
+
+[![GitHub](https://img.shields.io/badge/GitHub-%2312100E.svg?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Ham3d-s)
+[![Twitter](https://img.shields.io/badge/Twitter-%231DA1F2.svg?style=for-the-badge&logo=Twitter&logoColor=white)](https://x.com/ham3ds_)
+[![Telegram](https://img.shields.io/badge/Telegram-%232CA5E0.svg?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/Ham3ds)
