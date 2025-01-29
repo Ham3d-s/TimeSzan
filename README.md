@@ -1,78 +1,132 @@
+# <p align="center">⏱️ TimeSzan - مبدل زمان حرفه‌ای</p>
 
-# Time Converter | مبدل زمان
+<p align="center">
+  <a href="https://timeszan.netlify.app">
+    <img src="1738126557808.png" alt="تصویر برنامه TimeSzan" width="400">
+  </a>
+</p>
 
-## English
+<p align="center">
+  <a href="https://timeszan.netlify.app">
+    مشاهده دموی آنلاین برنامه
+  </a>
+</p>
 
-### Overview
-Time Converter is a powerful and user-friendly tool for managing and converting timestamps. This application allows you to easily convert between timestamps and various date formats, supporting both Persian and Gregorian calendars.
-
-### Features
-- Automatic conversion of current time to timestamp
-- Date and time display in both Persian and Gregorian calendars
-- Convert timestamps to human-readable date and time
-- Clean and intuitive user interface
-- Bilingual support (English and Persian)
-- Quick timestamp copy and paste
-- Live date and time display
-
-### Use Cases
-- Web developers and programmers
-- Database specialists
-- System administrators
-- General users needing date conversion
-
-### How to Use
-1. **Generate a Timestamp**: Click the "Generate Timestamp" button to create a new timestamp.
-2. **Convert a Timestamp**: Enter the timestamp in the input field and click "Show Details" to view the date and time.
-3. **Change Date Format**: Use the "Select Date Format" dropdown menu to switch between Persian and Gregorian calendars.
-
-### Installation
-To use this project, simply clone the repository and open the `Timestamp.html` file in your browser.
-
-```sh
-git clone https://github.com/yourusername/time-converter.git
-cd time-converter
-open Timestamp.html
-```
-
-### License
-This project is licensed under the Creative Commons Attribution 4.0 International (CC BY 4.0) license. You are free to use this code for any purpose, but you must include the author's name and the address of the original code in your project. For more information, please visit [Creative Commons](https://creativecommons.org/licenses/by/4.0/).
+<p align="center">
+  یک ابزار ساده و کارآمد برای تبدیل و مدیریت Timestamp.
+</p>
 
 ---
 
-## فارسی
+## ✨ ویژگی‌ها
 
-### معرفی
-مبدل زمان یک ابزار قدرتمند و کاربرپسند برای مدیریت و تبدیل Timestamp است. این برنامه به شما امکان می‌دهد تا به راحتی بین Timestamp و فرمت‌های مختلف تاریخ تبدیل انجام دهید و از تقویم‌های شمسی و میلادی پشتیبانی می‌کند.
+* **ایجاد Timestamp:** به سرعت Timestamp لحظه‌ای را تولید کنید.
+* **تبدیل Timestamp به تاریخ:** جزئیات تاریخ و زمان مربوط به یک Timestamp را مشاهده کنید.
+* **پشتیبانی از تقویم شمسی و میلادی:** نمایش تاریخ‌ها در هر دو تقویم.
+* **رابط کاربری زیبا و کاربرپسند:** طراحی مدرن و آسان برای استفاده.
+* **کپی و پیست آسان:** به راحتی Timestamp را کپی و پیست کنید.
+* **نمایش زمان زنده:** نمایش زمان جاری به صورت لحظه‌ای.
 
-### ویژگی‌ها
-- تبدیل خودکار زمان فعلی به Timestamp
-- نمایش تاریخ و زمان به دو تقویم شمسی و میلادی
-- تبدیل Timestamp به تاریخ و زمان قابل خواندن
-- رابط کاربری ساده و روان
-- پشتیبانی از زبان‌های فارسی و انگلیسی
-- کپی و پیست سریع Timestamp
-- نمایش زنده زمان و تاریخ
+## 🚀 استفاده
 
-### موارد استفاده
-- برنامه‌نویسان و توسعه‌دهندگان وب
-- متخصصان پایگاه داده
-- مدیران سیستم
-- کاربران عمومی نیازمند تبدیل تاریخ
+1. برای **ایجاد Timestamp**:
+   - به بخش "ایجاد Timestamp" بروید.
+   - قالب تاریخ مورد نظر خود را انتخاب کنید (شمسی یا میلادی).
+   - روی دکمه "ایجاد Timestamp" کلیک کنید.
+   - Timestamp ایجاد شده و جزئیات آن نمایش داده می‌شود.
 
-### راهنمای استفاده
-1. **ایجاد Timestamp**: روی دکمه "ایجاد Timestamp" کلیک کنید تا یک Timestamp جدید ایجاد شود.
-2. **تبدیل Timestamp**: عدد Timestamp را در فیلد ورودی وارد کرده و روی "نمایش جزئیات" کلیک کنید تا تاریخ و زمان نمایش داده شود.
-3. **تغییر فرمت تاریخ**: از منوی کشویی "انتخاب قالب تاریخ" برای تغییر بین تقویم‌های شمسی و میلادی استفاده کنید.
+2. برای **نمایش جزئیات Timestamp**:
+   - به بخش "نمایش جزئیات Timestamp" بروید.
+   - قالب تاریخ مورد نظر خود را انتخاب کنید (شمسی یا میلادی).
+   - Timestamp مورد نظر خود را در فیلد "وارد کردن Timestamp" وارد کنید.
+   - روی دکمه "نمایش جزئیات" کلیک کنید.
+   - جزئیات تاریخ و زمان مربوط به Timestamp نمایش داده می‌شود.
 
-### نصب
-برای استفاده از این پروژه، کافی است مخزن را کلون کرده و فایل `Timestamp.html` را در مرورگر خود باز کنید.
+## 🛠️ فناوری‌های استفاده شده
 
-```sh
-git clone https://github.com/yourusername/time-converter.git
-cd time-converter
-open Timestamp.html
-```
+* HTML
+* CSS
+* JavaScript
 
-### مجوز
-این پروژه تحت مجوز Creative Commons Attribution 4.0 International (CC BY 4.0) منتشر شده است. شما می‌توانید از این کد برای هر منظوری استفاده کنید، اما باید نام نویسنده و آدرس کد اصلی را در پروژه خود ذکر کنید. برای اطلاعات بیشتر، لطفاً به [Creative Commons](https://creativecommons.org/licenses/by/4.0/) مراجعه کنید.
+## 👤 توسعه‌دهنده
+
+[Ham3ds](https://github.com/Ham3d-s)
+
+[![GitHub](https://img.shields.io/badge/GitHub-%2312100E.svg?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Ham3d-s)
+[![Twitter](https://img.shields.io/badge/Twitter-%231DA1F2.svg?style=for-the-badge&logo=Twitter&logoColor=white)](https://x.com/ham3ds_)
+[![Telegram](https://img.shields.io/badge/Telegram-%232CA5E0.svg?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/Ham3ds)
+
+## 📄 لایسنس
+
+استفاده از این پروژه رایگان است، اما تحت شرایط زیر:
+
+* **ذکر نام:** در صورت استفاده از این کد یا بخشی از آن، لطفاً نام برنامه **TimeSzan** و توسعه‌دهنده **Ham3ds** را به همراه لینک برنامه ([https://timeszan.netlify.app](https://timeszan.netlify.app)) ذکر کنید.
+* **استفاده غیر تجاری و تجاری:** استفاده از این پروژه هم برای مقاصد غیرتجاری و هم تجاری مجاز است.
+
+---
+
+# <p align="center">⏱️ TimeSzan - Professional Time Converter</p>
+
+<p align="center">
+  <a href="https://timeszan.netlify.app">
+  </a>
+</p>
+
+<p align="center">
+  <a href="https://timeszan.netlify.app">
+    View Online Demo
+  </a>
+</p>
+
+<p align="center">
+  A simple and efficient tool for converting and managing Timestamps.
+</p>
+
+---
+
+## ✨ Features
+
+* **Generate Timestamp:** Quickly generate the current timestamp.
+* **Convert Timestamp to Date:** View date and time details corresponding to a timestamp.
+* **Persian and Gregorian Calendar Support:** Display dates in both calendars.
+* **Beautiful and User-Friendly Interface:** Modern and easy-to-use design.
+* **Easy Copy and Paste:** Easily copy and paste timestamps.
+* **Live Time Display:** Real-time display of the current time.
+
+## 🚀 Usage
+
+1. To **Generate Timestamp**:
+   - Go to the "Generate Timestamp" section.
+   - Select your desired date format (Persian or Gregorian).
+   - Click the "Generate Timestamp" button.
+   - The generated timestamp and its details will be displayed.
+
+2. To **Show Timestamp Details**:
+   - Go to the "Show Timestamp Details" section.
+   - Select your desired date format (Persian or Gregorian).
+   - Enter your timestamp in the "Enter Timestamp" field.
+   - Click the "Show Details" button.
+   - The date and time details corresponding to the timestamp will be displayed.
+
+## 🛠️ Technologies Used
+
+* HTML
+* CSS
+* JavaScript
+
+## 👤 Developer
+
+[Ham3ds](https://github.com/Ham3d-s)
+
+[![GitHub](https://img.shields.io/badge/GitHub-%2312100E.svg?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Ham3d-s)
+[![Twitter](https://img.shields.io/badge/Twitter-%231DA1F2.svg?style=for-the-badge&logo=Twitter&logoColor=white)](https://x.com/ham3ds_)
+[![Telegram](https://img.shields.io/badge/Telegram-%232CA5E0.svg?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/Ham3ds)
+
+## 📄 License
+
+Use of this project is free, but under the following conditions:
+
+* **Attribution:** If you use this code or part of it, please credit the program name **TimeSzan** and the developer **Ham3ds**, along with a link to the program ([https://timeszan.netlify.app](https://timeszan.netlify.app)).
+* **Non-commercial and Commercial Use:**  Use of this project is permitted for both non-commercial and commercial purposes.
+
+
