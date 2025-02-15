@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>مبدل زمان</title>
+    <link rel="stylesheet" href="css/fonts/Vazirmatn-font-face.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+    <div class="language-switcher">
+        <button class="language-btn" id="languageToggle">English</button>
+    </div>
+
+<div id="liveDateTime"></div>
+
+<div id="container">
+    <fieldset class="section">
+        <legend>ایجاد Timestamp</legend>
+        <div class="date-format-select">
+            <label for="generateDateFormat">انتخاب قالب تاریخ</label>
+            <select id="generateDateFormat">
+                <option value="fa-IR">شمسی</option>
+                <option value="en-US">میلادی</option>
+            </select>
+         </div>
+        <button id="generateTimestamp">ایجاد Timestamp</button>
+        <div id="timestampContainer">
+            <label for="timestamp" style="flex-shrink: 0;">Timestamp:</label>
+            <input type="text" id="timestamp" readonly>
+            <button id="copyButton" aria-label="کپی کردن Timestamp"><i id="copyIcon" class="fas fa-copy"></i></button>
+            <div id="copyFeedback" aria-live="polite" class="feedback-message"></div>
+        </div>
+        <pre id="timestampDetails"></pre>
+    </fieldset>
+
+    <fieldset class="section">
+        <legend>نمایش جزئیات Timestamp</legend>
+         <div class="date-format-select">
+            <label for="inputDateFormat">انتخاب قالب تاریخ</label>
+            <select id="inputDateFormat">
+                <option value="fa-IR">شمسی</option>
+                <option value="en-US">میلادی</option>
+            </select>
+         </div>
+
+        <label for="inputTimestamp">وارد کردن Timestamp</label>
+        <div id="timestampContainer">
+            <input type="text" id="inputTimestamp" placeholder="مثال: 1732590702">
+            <button id="pasteButton" aria-label="چسباندن Timestamp"><i id="pasteIcon" class="fas fa-paste"></i></button>
+        </div>
+        <button id="showDetails">نمایش جزئیات</button>
+        <pre id="inputTimestampDetails" class="error"></pre>
+    </fieldset>
+
+    <div class="info-dropdown">
+        <button class="info-btn" id="infoToggle"></button>
+        <div class="info-content" id="infoContent"></div>
+    </div>
+
+</div>
+
+<footer>
+    <a href="https://github.com/Ham3d-s">GitHub</a> |
+    <a href="https://x.com/ham3ds_">Twitter</a> |
+    <a href="https://t.me/Ham3ds">Telegram</a>
+</footer>
+
+<script src="js/i18n.js"></script>
+<script src="js/app.js"></script>
+
+</body>
+</html>

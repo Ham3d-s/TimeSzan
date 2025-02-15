@@ -1,0 +1,123 @@
+:root {
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.36);
+    --background-color: #0f0f1a;
+    --container-background-color: rgba(44, 44, 46, 0.3);
+    --input-background-color: rgba(58, 58, 60, 0.4);
+    --border-color: rgba(72, 72, 74, 0.5);
+    --text-color: #f5f5f7;
+    --primary-color: #0a84ff;
+    --success-color: #32d74b;
+}
+
+body {
+    font-family: 'Vazirmatn', sans-serif;
+    direction: rtl;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    background: linear-gradient(135deg, #1a1a2e 0%, #0f0f1a 100%);
+    min-height: 100vh;
+}
+
+#container {
+    width: 90%;
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: var(--container-background-color);
+    border-radius: 12px;
+    box-sizing: border-box;
+    flex: 1;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+    animation: fadeIn 0.8s ease-out;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: var(--container-background-color);
+    margin-top: auto;
+    border-top: 1px solid var(--border-color);
+    background: var(--glass-bg);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-top: 1px solid var(--glass-border);
+}
+
+footer a {
+    color: var(--primary-color);
+    margin: 0 10px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    position: relative;
+    padding: 5px 0;
+}
+
+footer a:hover {
+    color: #086dd9;
+}
+
+footer a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+footer a:hover::after {
+    width: 100%;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: var(--text-color);
+}
+
+/* Add smooth page load animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Language Switcher Styles */
+.language-switcher {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.language-btn {
+    background: var(--glass-bg);
+    color: var(--text-color);
+    border: 1px solid var(--glass-border);
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    backdrop-filter: blur(8px);
+    transition: all 0.3s ease;
+}
+
+.language-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(10, 132, 255, 0.3);
+}

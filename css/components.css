@@ -1,0 +1,273 @@
+.section {
+    margin-bottom: 30px;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 15px;
+    background: var(--glass-bg);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.section:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.45);
+}
+
+.section legend {
+    font-size: 1.2em;
+    font-weight: bold;
+    padding: 0 10px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+input[type="text"], select {
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 17px;
+    background-color: var(--input-background-color);
+    color: var(--text-color);
+    width: calc(100% - 24px); /* Adjust for padding */
+    box-sizing: border-box;
+    margin-bottom: 16px;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url('../fonts/Vazirmatn-font-face.css'); /* Corrected path */
+    transition: border-color 0.3s ease;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    background: var(--input-background-color);
+    border: 1px solid var(--glass-border);
+    transition: all 0.3s ease;
+}
+
+input[type="text"]:focus, select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 20px rgba(10, 132, 255, 0.3);
+}
+
+button {
+    background-color: var(--primary-color);
+    color: #fff;
+    cursor: pointer;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 17px;
+    width: 100%;
+    margin-bottom: 16px;
+    box-sizing: border-box;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+    background: linear-gradient(135deg, var(--primary-color), #0055ff);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    box-shadow: 0 4px 15px rgba(10, 132, 255, 0.3);
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background-color: #086dd9;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(10, 132, 255, 0.4);
+    background: linear-gradient(135deg, #0055ff, var(--primary-color));
+}
+
+button:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(10, 132, 255, 0.5);
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+#timestampDetails, #inputTimestampDetails {
+    white-space: pre-wrap;
+    background-color: var(--input-background-color);
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 17px;
+    line-height: 1.5;
+    margin-bottom: 15px;
+    overflow-x: auto;
+    background: var(--input-background-color);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border: 1px solid var(--glass-border);
+    transition: all 0.3s ease;
+}
+
+#liveDateTime {
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: var(--input-background-color);
+    border-radius: 12px;
+    font-size: 17px;
+    background: var(--glass-bg);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+    animation: pulse 2s infinite;
+}
+
+
+.date-format-select {
+    direction: ltr;
+    width: 100%;
+    margin-bottom: 16px;
+}
+
+#timestampContainer {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+#copyButton {
+    background-color: transparent;
+    color: var(--primary-color);
+    border: none;
+    padding: 0;
+    font-size: 20px;
+    cursor: pointer;
+    transition: transform 0.2s ease, color 0.2s ease;
+    margin-left: auto; /* Push to the right */
+    margin-bottom: 0;
+}
+
+#copyButton:hover {
+    transform: scale(1.2);
+    color: #086dd9;
+}
+
+#copyButton:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(10, 132, 255, 0.5);
+}
+
+#copyButton:active {
+    transform: scale(0.9);
+}
+
+.copy-success #copyIcon {
+   animation: checkmark 0.5s ease forwards;
+}
+
+@keyframes checkmark {
+     0% { transform: scale(1); }
+     50% { transform: scale(1.3) rotate(10deg); color: var(--success-color);}
+    100% { transform: scale(1) rotate(0deg); color: var(--success-color);}
+}
+
+#pasteButton {
+    background-color: transparent;
+    color: var(--primary-color);
+    border: none;
+    padding: 0;
+    font-size: 20px;
+    cursor: pointer;
+    transition: transform 0.2s ease, color 0.2s ease;
+    margin-left: 10px;
+}
+
+#pasteButton:hover {
+    transform: scale(1.2);
+    color: #086dd9;
+}
+
+#pasteButton:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(10, 132, 255, 0.5);
+}
+
+#pasteButton:active {
+    transform: scale(0.9);
+}
+
+
+input[type="text"]::-webkit-input-placeholder { direction: rtl; }
+input[type="text"]:-moz-placeholder { direction: rtl; }
+input[type="text"]::-moz-placeholder { direction: rtl; }
+input[type="text"]:-ms-input-placeholder { direction: rtl; }
+input[type="text"]::-ms-input-placeholder { direction: rtl; }
+input[type="text"]::placeholder { direction: rtl; }
+
+.feedback-message {
+    font-size: 0.9em;
+    margin-top: -10px;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+.feedback-message.success {
+    color: var(--success-color);
+}
+
+.feedback-message.error {
+    color: #ff453a;
+}
+
+
+/* Info Dropdown Styles */
+.info-dropdown {
+    margin-top: 20px;
+    border-top: 1px solid var(--glass-border);
+    padding-top: 20px;
+}
+
+.info-btn {
+    width: 100%;
+    text-align: center;
+    background: var(--glass-bg);
+    color: var(--text-color);
+    border: 1px solid var(--glass-border);
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    backdrop-filter: blur(8px);
+    transition: all 0.3s ease;
+}
+
+.info-content {
+    display: none;
+    padding: 15px;
+    background: var(--glass-bg);
+    border-radius: 8px;
+    margin-top: 10px;
+    backdrop-filter: blur(8px);
+    line-height: 1.6;
+}
+
+.info-content.active {
+    display: block;
+    animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.7;
+    }
+    100% {
+        opacity: 1;
+    }
+}
